@@ -1,0 +1,73 @@
+"name": "RTF"
+scopeName: "text.rtf"
+fileTypes: ["rtf"]
+
+patterns: [
+  {
+    begin: "\\{\\\\\\*"
+    end:   "}"
+    beginCaptures: 0: name: "keyword.operator.begin-ignorable-destination-group.rtf"
+    endCaptures:   0: name: "keyword.operator.end-ignorable-destination-group.rtf"
+    patterns: [include: "$self"]
+  },{
+    begin: "\\{"
+    end:   "}"
+    beginCaptures: 0: name: "keyword.operator.begin-group.rtf"
+    endCaptures:   0: name: "keyword.operator.end-group.rtf"
+    patterns: [include: "$self"]
+  },{
+    name:  "constant.character.escape.rtf"
+    match: "\\\\[\\\\{}]"
+  },{
+    name:  "keyword.operator.formula.rtf"
+    match: "\\\\\\|"
+  },{
+    name:  "constant.character.escape.non-breaking-space.rtf"
+    match: "\\\\~"
+  },{
+    name:  "constant.character.escape.optional-hyphen.rtf"
+    match: "\\\\-"
+  },{
+    name:  "constant.character.escape.non-breaking-hyphen.rtf"
+    match: "\\\\_"
+  },{
+    name:  "keyword.operator.index-subentry.rtf"
+    match: "\\\\:"
+  },{
+    name:  "keyword.operator.ignorable-destination.rtf"
+    match: "\\\\\\*"
+  },{
+    name:  "support.function.par.rtf"
+    match: "\\\\[\\n\\r]"
+  },{
+    name:  "constant.character.escape.hexadecimal.rtf"
+    match: "\\\\'[0-9A-Fa-f]{2}"
+  },{
+    begin: "\\\\b\\b"
+    end:   "(?=\\\\(?:b0|plain)\\b|})"
+    beginCaptures: 0: name: "support.function.rtf"
+    contentName: "markup.bold.rtf"
+    patterns: [include: "$self"]
+  },{
+    begin: "\\\\i\\b"
+    end:   "(?=\\\\(?:i0|plain)\\b|})"
+    beginCaptures: 0: name: "support.function.rtf"
+    contentName: "markup.italic.rtf"
+    patterns: [include: "$self"]
+  },{
+    begin: "\\\\strike\\b"
+    end:   "(?=\\\\(?:strike0|plain)\\b|})"
+    beginCaptures: 0: name: "support.function.rtf"
+    contentName: "markup.strike.rtf"
+    patterns: [include: "$self"]
+  },{
+    match: "(\\\\[A-Za-z]+)(?:(-?)(\\d+))?"
+    captures:
+      1: name: "support.function.rtf"
+      2: name: "keyword.operator.rtf"
+      3: name: "constant.numeric.rtf"
+  },{
+    name:  "invalid.unimplemented.rtf"
+    match: "\\\\[^A-Za-z]"
+  }
+]

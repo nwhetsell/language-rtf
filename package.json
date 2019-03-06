@@ -1,0 +1,13 @@
+{
+  "name": "language-rtf",
+  "version": "0.0.0",
+  "description": "RTF support in Atom",
+  "keywords": [
+    "RTF"
+  ],
+  "repository": "https://github.com/nwhetsell/language-rtf",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
