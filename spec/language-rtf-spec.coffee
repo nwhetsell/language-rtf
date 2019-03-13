@@ -21,7 +21,7 @@ describe "language-rtf", ->
       expect(tokens[3]).toEqual value: "\\foo", scopes: ["text.rtf", "support.function.rtf"]
       expect(tokens[4]).toEqual value: "}", scopes: ["text.rtf", "keyword.operator.end-ignorable-destination-group.rtf"]
 
-    it "tokenizes control symbold", ->
+    it "tokenizes control symbols", ->
       {tokens} = grammar.tokenizeLine "\\\\\\{\\}\\|\\~\\-\\_\\:\\'a0\\!"
       expect(tokens.length).toBe 10
       expect(tokens[0]).toEqual value: "\\\\", scopes: ["text.rtf", "constant.character.escape.rtf"]
