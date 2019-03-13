@@ -23,7 +23,7 @@ describe "language-rtf", ->
 
     it "tokenizes control symbols", ->
       {tokens} = grammar.tokenizeLine "\\\\\\{\\}\\|\\~\\-\\_\\:\\'a0\\!"
-      expect(tokens.length).toBe 10
+      expect(tokens.length).toBe 11
       expect(tokens[0]).toEqual value: "\\\\", scopes: ["text.rtf", "constant.character.escape.rtf"]
       expect(tokens[1]).toEqual value: "\\{", scopes: ["text.rtf", "constant.character.escape.rtf"]
       expect(tokens[2]).toEqual value: "\\}", scopes: ["text.rtf", "constant.character.escape.rtf"]
@@ -32,8 +32,9 @@ describe "language-rtf", ->
       expect(tokens[5]).toEqual value: "\\-", scopes: ["text.rtf", "constant.character.escape.optional-hyphen.rtf"]
       expect(tokens[6]).toEqual value: "\\_", scopes: ["text.rtf", "constant.character.escape.non-breaking-hyphen.rtf"]
       expect(tokens[7]).toEqual value: "\\:", scopes: ["text.rtf", "keyword.operator.index-subentry.rtf"]
-      expect(tokens[8]).toEqual value: "\\'a0", scopes: ["text.rtf", "constant.character.escape.hexadecimal.rtf"]
-      expect(tokens[9]).toEqual value: "\\!", scopes: ["text.rtf", "invalid.unimplemented.rtf"]
+      expect(tokens[8]).toEqual value: "\\'", scopes: ["text.rtf", "constant.character.entity.rtf", "punctuation.definition.constant.rtf"]
+      expect(tokens[9]).toEqual value: "a0", scopes: ["text.rtf", "constant.character.entity.rtf"]
+      expect(tokens[10]).toEqual value: "\\!", scopes: ["text.rtf", "invalid.unimplemented.rtf"]
 
     it "tokenizes document", ->
       # From https://en.wikipedia.org/wiki/Rich_Text_Format#Code_syntax

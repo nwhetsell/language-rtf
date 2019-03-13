@@ -40,8 +40,9 @@ patterns: [
     name:  "support.function.par.rtf"
     match: "\\\\[\\n\\r]"
   },{
-    name:  "constant.character.escape.hexadecimal.rtf"
-    match: "\\\\'[0-9A-Fa-f]{2}"
+    name:  "constant.character.entity.rtf"
+    match: "(\\\\')[0-9A-Fa-f]{2}"
+    captures: 1: name: "punctuation.definition.constant.rtf"
   },{
     begin: "\\\\b\\b"
     end:   "(?=\\\\(?:b0|plain)\\b|})"
