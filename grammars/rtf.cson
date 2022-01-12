@@ -45,19 +45,19 @@ patterns: [
     captures: 1: name: "punctuation.definition.constant.rtf"
   },{
     begin: "\\\\b\\b"
-    end:   "(?=\\\\(?:b0|plain)\\b|})"
+    end:   "(?=\\\\(?:b0(?:\\b|[^\\d])|plain\\b)|})"
     beginCaptures: 0: name: "support.function.rtf"
     contentName: "markup.bold.rtf"
     patterns: [include: "$self"]
   },{
     begin: "\\\\i\\b"
-    end:   "(?=\\\\(?:i0|plain)\\b|})"
+    end:   "(?=\\\\(?:i0(?:\\b|[^\\d])|plain\\b)|})"
     beginCaptures: 0: name: "support.function.rtf"
     contentName: "markup.italic.rtf"
     patterns: [include: "$self"]
   },{
     begin: "\\\\strike\\b"
-    end:   "(?=\\\\(?:strike0|plain)\\b|})"
+    end:   "(?=\\\\(?:strike0(?:\\b|[^\\d])|plain\\b)|})"
     beginCaptures: 0: name: "support.function.rtf"
     contentName: "markup.strike.rtf"
     patterns: [include: "$self"]

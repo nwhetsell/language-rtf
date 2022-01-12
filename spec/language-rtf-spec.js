@@ -121,5 +121,18 @@ describe("language-rtf", () => {
       expect(tokens[7]).toEqual({value: " Bold again", scopes: ["text.rtf", "markup.bold.rtf"]});
       expect(tokens[8]).toEqual({value: "}", scopes: ["text.rtf", "keyword.operator.end-group.rtf"]});
     });
+
+    it("tokenizes property changes without spaces", () => {
+      // https://github.com/nwhetsell/language-rtf/issues/1
+      const {tokens} = grammar.tokenizeLine("{\\b bold \\b0not bold}");
+      expect(tokens.length).toBe(7);
+      expect(tokens[0]).toEqual({value: "{", scopes: ["text.rtf", "keyword.operator.begin-group.rtf"]});
+      expect(tokens[1]).toEqual({value: "\\b", scopes: ["text.rtf", "support.function.rtf"]});
+      expect(tokens[2]).toEqual({value: " bold ", scopes: ["text.rtf", "markup.bold.rtf"]});
+      expect(tokens[3]).toEqual({value: "\\b", scopes: ["text.rtf", "support.function.rtf"]});
+      expect(tokens[4]).toEqual({value: "0", scopes: ["text.rtf", "constant.numeric.rtf"]});
+      expect(tokens[5]).toEqual({value: "not bold", scopes: ["text.rtf"]});
+      expect(tokens[6]).toEqual({value: "}", scopes: ["text.rtf", "keyword.operator.end-group.rtf"]});
+    });
   });
 });
