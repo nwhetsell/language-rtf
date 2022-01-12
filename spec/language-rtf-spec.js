@@ -79,7 +79,7 @@ describe("language-rtf", () => {
       expect(tokens[0]).toEqual({value: "}", scopes: ["text.rtf", "keyword.operator.end-group.rtf"]});
     });
 
-    it ("tokenizes property changes", () => {
+    it("tokenizes property changes", () => {
       // From page 250 of the RTF specification v1.9.1
       // <https://www.microsoft.com/en-us/download/details.aspx?id=10725>
       const lines = grammar.tokenizeLines(dedent`
