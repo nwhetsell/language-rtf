@@ -18,6 +18,10 @@ jobs:
     - name: Install Pulsar on macOS
       run: brew install pulsar
       if: ${{ matrix.os == 'macos-latest' }}
+
+    - name: Install Linux dependencies
+      run: sudo apt -y install libsecret-1-0
+      if: ${{ matrix.os == 'ubuntu-latest' }}
     - name: Install Pulsar on Linux
       uses: pulsar-edit/action-pulsar-dependency@v3
       if: ${{ matrix.os == 'ubuntu-latest' }}
