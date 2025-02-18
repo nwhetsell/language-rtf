@@ -1,6 +1,6 @@
 {
   "name": "language-rtf",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Rich Text Format (RTF) support for Pulsar and other Atom forks",
   "keywords": [
     "RTF",
