@@ -1,4 +1,4 @@
-"name": "RTF"
+name: "Rich Text Format"
 scopeName: "text.rtf"
 fileTypes: ["rtf"]
 
@@ -6,14 +6,14 @@ patterns: [
   {
     begin: "\\{\\\\\\*"
     end:   "}"
-    beginCaptures: 0: name: "keyword.operator.begin-ignorable-destination-group.rtf"
-    endCaptures:   0: name: "keyword.operator.end-ignorable-destination-group.rtf"
+    beginCaptures: 0: name: "keyword.operator.group.ignorable-destination.begin.rtf"
+    endCaptures:   0: name: "keyword.operator.group.ignorable-destination.end.rtf"
     patterns: [include: "$self"]
   },{
     begin: "\\{"
     end:   "}"
-    beginCaptures: 0: name: "keyword.operator.begin-group.rtf"
-    endCaptures:   0: name: "keyword.operator.end-group.rtf"
+    beginCaptures: 0: name: "keyword.operator.group.begin.rtf"
+    endCaptures:   0: name: "keyword.operator.group.end.rtf"
     patterns: [include: "$self"]
   },{
     name:  "constant.character.escape.rtf"
