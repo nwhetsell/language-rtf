@@ -1,9 +1,10 @@
 {
   "name": "language-rtf",
   "version": "0.1.3",
-  "description": "RTF support for Pulsar and other Atom forks",
+  "description": "RTF (Rich Text File) support for Pulsar and other Atom forks",
   "keywords": [
-    "RTF"
+    "RTF",
+    "rich text"
   ],
   "repository": "https://github.com/nwhetsell/language-rtf",
   "license": "MIT",

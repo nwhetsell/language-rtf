@@ -1,4 +1,4 @@
-"name": "RTF"
+name: "Rich Text Format"
 scopeName: "text.rtf"
 fileTypes: ["rtf"]
 
