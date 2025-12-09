@@ -27,7 +27,7 @@ jobs:
       if: ${{ matrix.os == 'ubuntu-latest' }}
 
     - name: Install package dependencies
-      run: ppm install
+      run: pulsar --package install
 
     - name: Run tests
       uses: coactions/setup-xvfb@v1
